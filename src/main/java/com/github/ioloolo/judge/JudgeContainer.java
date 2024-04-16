@@ -124,8 +124,6 @@ public class JudgeContainer {
 
     /**
      * Sorry for bloody code...
-     *
-     * @throws Exception
      */
     private void runTestCases() throws Exception {
 
@@ -238,8 +236,8 @@ public class JudgeContainer {
                 // Memory check
                 long memory = maxUsedMemory.get();
                 sumMemory.getAndAdd(memory);
-                if (memory > problem.getLong("memoryLimit") * 1024) {
-                    log.info("[Judge] Memory limit exceeded. Max: %d".formatted(problem.getLong("memoryLimit")));
+                if (memory > language.getMemory().apply(problem.getLong("memoryLimit") * 1024)) {
+                    log.info("[Judge] Memory limit exceeded. Max: %d".formatted(language.getMemory().apply(problem.getLong("memoryLimit") * 1024)));
                     setResult(JudgeResult.MEMORY_LIMIT_EXCEEDED, Map.of("input", testCase.getString("input")));
                     memoryThread.shutdown();
                     return Optional.of(new MemoryLimitException());
@@ -264,7 +262,7 @@ public class JudgeContainer {
             // Time limit check
             try {
                 long before = System.currentTimeMillis();
-                exception = judgeTask.get(problem.getLong("timeLimit"), TimeUnit.MILLISECONDS);
+                exception = judgeTask.get(language.getTime().apply(problem.getLong("timeLimit")), TimeUnit.MILLISECONDS);
                 long after = System.currentTimeMillis();
 
                 sumTime.getAndAdd(after - before);
