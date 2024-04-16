@@ -17,9 +17,6 @@ RUN apt-get update \
 WORKDIR /app
 
 ENV MONGODB_HOST host.docker.internal
-ENV MONGODB_PORT 27017
-ENV MONGODB_AUTH_DATABASE admin
-ENV MONGODB_DATABASE OnlineJudge
 
 COPY ./build/libs/JudgeSystem.jar ./judge.jar
 
