@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get install -y software-properties-common \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
-    && apt-get install -y openjdk-17-jdk python3.12 gcc g++ \
+    && apt-get install -y gcc g++ openjdk-21-jdk python3.12 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \

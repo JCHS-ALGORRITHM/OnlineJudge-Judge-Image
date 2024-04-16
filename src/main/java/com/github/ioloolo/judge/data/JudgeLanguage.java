@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum JudgeLanguage {
-    C("Solution.c", "gcc Solution.c -o Solution -O2 -w -lm -std=c11 -DONLINE_JUDGE", "./Solution"),
-    CPP("Solution.cpp", "g++ Solution.cpp -o Solution -O2 -w -lm -std=c++17 -DONLINE_JUDGE", "./Solution"),
+    C("Solution.c", "gcc Solution.c -o Solution -O2 -w -lm -std=c18 -DONLINE_JUDGE", "./Solution"),
+    CPP("Solution.cpp", "g++ Solution.cpp -o Solution -O2 -w -lm -std=c++23 -DONLINE_JUDGE", "./Solution"),
     PYTHON("Solution.py", null, "python Solution.py"),
     JAVA("Solution.java", "javac Solution.java", "java Solution"),
     ;
