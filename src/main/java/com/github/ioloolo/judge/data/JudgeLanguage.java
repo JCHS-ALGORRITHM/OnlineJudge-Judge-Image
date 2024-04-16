@@ -27,7 +27,7 @@ public enum JudgeLanguage {
     PYTHON(
             "Solution.py",
             null,
-            "python Solution.py",
+            "pypy3 Solution.py",
             memory -> memory * 2 + 32,
             time -> time * 3 + 2000
     ),
