@@ -12,7 +12,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/* \
-    && ln -s /usr/bin/python3.12 /usr/bin/python
+    && ln -s /usr/bin/python3.12 /usr/bin/python3
 
 WORKDIR /app
 
